@@ -1,0 +1,117 @@
+// Defining colors
+$background: #393e46;
+$text-color: #00adb5;
+$text-light: rgb(248, 248, 248);
+
+// Mixins
+@mixin display-flex($direction, $justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+// Default reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $background;
+  font-family: 'Open Sans', sans-serif;
+}
+
+// Header
+.header {
+  min-height: 10vh;
+  background-color: darken($background, 10%);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__branding {
+    font-size: 4rem;
+    color: $text-light;
+  }
+
+  &__nav {
+    &__ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+
+      &__item:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $text-light;
+      font-size: 2.5rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover,
+      &.active {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Styles for home page
+.heading--primary {
+  font-size: 10rem;
+  color: $text-color;
+  text-align: center;
+}
+
+.hero__gallery {
+  margin: 2rem auto 10rem auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__image__container {
+    &:not(:last-of-type) {
+      margin-right: 5rem;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// Styles for mixins page
+.wrapper {
+  @include display-flex(row, center, center);
+
+  &__boxes--vertical {
+    @include display-flex(column, space-between, center);
+    margin: 3rem;
+  }
+
+  &__boxes--horizontal {
+    @include display-flex(row, space-between, center);
+    margin: 0 3rem 3rem 3rem;
+  }
+}
+
+.box {
+  width: 6rem;
+  height: 6rem;
+  background-color: $text-color;
+
+  margin: 2rem;
+}

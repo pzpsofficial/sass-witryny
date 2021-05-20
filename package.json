@@ -1,0 +1,15 @@
+{
+  "name": "sass-witryny",
+  "version": "1.0.0",
+  "description": "Wykład na witryny i aplikacje",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass style.scss style.css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.32.11"
+  }
+}
